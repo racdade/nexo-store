@@ -8,6 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
 
@@ -439,6 +440,13 @@
           <button class="pay-btn" data-pay="Apple Pay" type="button">Apple Pay</button>
         </div>
         <div class="pay-selected">Seleccionado · <span id="pay-selected">Tarjeta</span></div>
+        <div class="yape-panel" id="yape-panel" hidden>
+          <div class="yape-qr" id="yape-qr" aria-label="Código QR de Yape"></div>
+          <div class="yape-info">
+            <div class="yape-info-title">Escanea con tu app Yape</div>
+            <div class="yape-info-text">Abre Yape, toca "Yapear" y escanea este código para pagar <strong id="yape-amount">S/ 0.00</strong>. O yapea directo al <strong>+51 900 000 000</strong>.</div>
+          </div>
+        </div>
       </div>
     </div>
     <aside class="order-summary">

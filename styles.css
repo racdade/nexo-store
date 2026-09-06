@@ -403,6 +403,18 @@ main[data-view="checkout"] { border-bottom: 1px solid var(--ink); }
 }
 .pay-btn-active { background: var(--ink); color: var(--bg); }
 .pay-selected { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--blue); margin-top: 14px; font-weight: 600; }
+
+.yape-panel {
+  margin-top: 22px; border: 1px solid var(--ink); padding: 22px; display: flex; gap: 20px;
+  align-items: center; flex-wrap: wrap; animation: nexoFadeIn .3s ease;
+}
+.yape-panel[hidden] { display: none; }
+.yape-qr { flex: none; width: 132px; height: 132px; background: #fff; border: 1px solid var(--ink); padding: 8px; display: flex; align-items: center; justify-content: center; }
+.yape-qr img, .yape-qr canvas, .yape-qr table { display: block; width: 100% !important; height: 100% !important; }
+.yape-info { flex: 1 1 200px; min-width: 0; }
+.yape-info-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 15px; text-transform: uppercase; }
+.yape-info-text { font-size: 13.5px; line-height: 1.55; color: var(--gray-2); margin-top: 8px; }
+.yape-info-text strong { color: var(--ink); }
 .order-lines { margin-top: 22px; display: flex; flex-direction: column; gap: 12px; font-size: 15px; }
 .order-line { display: flex; justify-content: space-between; gap: 14px; }
 .order-line span:last-child { font-weight: 600; }

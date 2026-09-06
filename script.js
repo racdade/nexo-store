@@ -154,6 +154,27 @@
     document.querySelectorAll('.pay-btn').forEach((btn) => {
       btn.classList.toggle('pay-btn-active', btn.getAttribute('data-pay') === state.pay);
     });
+
+    renderYapePanel(t);
+  }
+
+  let yapeQr = null;
+  function renderYapePanel(t) {
+    const panel = document.getElementById('yape-panel');
+    if (!panel) return;
+    const show = state.pay === 'Yape';
+    panel.hidden = !show;
+    if (!show) return;
+
+    setText('yape-amount', eur(t.total));
+    const qrEl = document.getElementById('yape-qr');
+    const text = `Yape a +51 900 000 000 - Pedido NX-24817 - ${eur(t.total)}`;
+    if (typeof QRCode === 'undefined' || !qrEl) return;
+    if (!yapeQr) {
+      yapeQr = new QRCode(qrEl, { text, width: 116, height: 116, correctLevel: QRCode.CorrectLevel.M });
+    } else {
+      yapeQr.makeCode(text);
+    }
   }
 
   function renderProductPage() {
