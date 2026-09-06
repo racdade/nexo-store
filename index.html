@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NEXO Store — Streetwear técnico de edición limitada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Promo marquee -->
+<div class="marquee-bar">
+  <div class="marquee-track">
+    <div class="marquee-group">
+      <span>Envío gratis desde S/ 60</span><span>—</span><span>-20 % con el código NEXO20</span><span>—</span><span>Devoluciones en 30 días</span><span>—</span><span>Entrega en 24/48 h</span><span>—</span><span>Nueva colección disponible</span><span>—</span>
+    </div>
+    <div class="marquee-group" aria-hidden="true">
+      <span>Envío gratis desde S/ 60</span><span>—</span><span>-20 % con el código NEXO20</span><span>—</span><span>Devoluciones en 30 días</span><span>—</span><span>Entrega en 24/48 h</span><span>—</span><span>Nueva colección disponible</span><span>—</span>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand" data-nav="home" role="button" tabindex="0">
+      <div class="brand-mark">N</div>
+      <span class="brand-name">NEXO</span>
+    </div>
+    <nav class="main-nav">
+      <a href="#colecciones">Colecciones</a>
+      <a href="#bestsellers">Best sellers</a>
+      <a href="#ofertas" class="accent">Ofertas</a>
+      <a href="#lookbook">Lookbook</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <a class="whatsapp-link" href="https://wa.me/34600000000" target="_blank" rel="noopener">WhatsApp</a>
+      <button class="cart-btn" data-nav="cart" type="button">
+        <span>Carrito</span><span class="cart-count" id="cart-count">2</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ============ HOME ============ -->
+<main class="view" data-view="home">
+
+  <section class="hero-section">
+    <div class="hero-copy">
+      <div>
+        <div class="tag-pill">Colección SS26 · Drop 01</div>
+        <h1 class="hero-title">Streetwear<br>para los que<br>no piden<br><span class="accent-text">permiso</span></h1>
+        <p class="hero-sub">Prendas técnicas de edición limitada. Producción corta, materiales pesados, cero relleno.</p>
+      </div>
+      <div class="hero-actions">
+        <button class="btn btn-dark" data-nav="product" type="button">Comprar ahora</button>
+        <a class="btn btn-outline" href="#colecciones">Ver colección</a>
+      </div>
+    </div>
+    <div class="hero-media">
+      <img src="https://images.pexels.com/photos/31700390/pexels-photo-31700390.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Foto de campaña — vertical, cuerpo completo" class="bw-photo">
+      <div class="hero-caption">
+        <div class="hero-caption-label">Look 01</div>
+        <div class="hero-caption-title">Heavy Hoodie · S/ 79.90</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats-strip">
+    <div class="stat">
+      <div class="stat-title">Envío 24/48 h</div>
+      <div class="stat-desc">Gratis desde S/ 60</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">30 días</div>
+      <div class="stat-desc">Devolución sin preguntas</div>
+    </div>
+    <div class="stat">
+      <div class="stat-title">Pago seguro</div>
+      <div class="stat-desc">Tarjeta, Bizum, PayPal</div>
+    </div>
+    <div class="stat stat-last">
+      <div class="stat-title">4,9 / 5</div>
+      <div class="stat-desc">2.400 pedidos valorados</div>
+    </div>
+  </section>
+
+  <section id="colecciones" class="section-block">
+    <div class="section-header">
+      <h2 class="section-title">Categorías</h2>
+      <div class="section-note">Cuatro líneas. Cada una con su propio patrón y gramaje.</div>
+    </div>
+    <div class="categories-grid">
+      <button class="category-card" data-nav="product" type="button">
+        <img src="https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Hoodies" class="bw-photo">
+        <div class="category-overlay">
+          <div class="category-name">Hoodies</div>
+          <div class="category-count">18 productos</div>
+        </div>
+      </button>
+      <button class="category-card" data-nav="product" type="button">
+        <img src="https://images.pexels.com/photos/9558577/pexels-photo-9558577.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Camisetas" class="bw-photo">
+        <div class="category-overlay">
+          <div class="category-name">Camisetas</div>
+          <div class="category-count">24 productos</div>
+        </div>
+      </button>
+      <button class="category-card" data-nav="product" type="button">
+        <img src="https://images.pexels.com/photos/1082529/pexels-photo-1082529.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Pantalones" class="bw-photo">
+        <div class="category-overlay">
+          <div class="category-name">Pantalones</div>
+          <div class="category-count">12 productos</div>
+        </div>
+      </button>
+      <button class="category-card category-card-last" data-nav="product" type="button">
+        <img src="https://images.pexels.com/photos/8386654/pexels-photo-8386654.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Accesorios" class="bw-photo">
+        <div class="category-overlay">
+          <div class="category-name">Accesorios</div>
+          <div class="category-count">9 productos</div>
+        </div>
+      </button>
+    </div>
+  </section>
+
+  <section id="bestsellers" class="section-block">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Lo más vendido</div>
+        <h2 class="section-title">Best sellers</h2>
+      </div>
+      <a class="section-link" href="#colecciones">Ver colección</a>
+    </div>
+    <div class="bestsellers-grid">
+      <article class="product-card">
+        <div class="product-media" data-nav="product">
+          <img src="https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Producto 01" class="bw-photo">
+          <div class="badge badge-dark">Top 1</div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Heavy Hoodie Archive</h3>
+          <div class="product-meta">Algodón 480 g · Negro</div>
+          <div class="price-row">
+            <span class="price">S/ 79.90</span>
+            <span class="price-old">S/ 99.90</span>
+          </div>
+          <button class="add-btn" data-add="Heavy Hoodie Archive" data-price="79.90" type="button">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="product-media" data-nav="product">
+          <img src="https://images.pexels.com/photos/13094146/pexels-photo-13094146.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Producto 02" class="bw-photo">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Tee Oversize Grid</h3>
+          <div class="product-meta">Algodón 240 g · Hueso</div>
+          <div class="price-row">
+            <span class="price">S/ 34.90</span>
+          </div>
+          <button class="add-btn" data-add="Tee Oversize Grid" data-price="34.90" type="button">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product-card">
+        <div class="product-media" data-nav="product">
+          <img src="https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Producto 03" class="bw-photo">
+          <div class="badge badge-accent">-30 %</div>
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Cargo Pant Utility</h3>
+          <div class="product-meta">Ripstop técnico · Grafito</div>
+          <div class="price-row">
+            <span class="price price-accent">S/ 62.90</span>
+            <span class="price-old">S/ 89.90</span>
+          </div>
+          <button class="add-btn" data-add="Cargo Pant Utility" data-price="62.90" type="button">Añadir al carrito</button>
+        </div>
+      </article>
+      <article class="product-card product-card-last">
+        <div class="product-media" data-nav="product">
+          <img src="https://images.pexels.com/photos/6046183/pexels-photo-6046183.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Producto 04" class="bw-photo">
+        </div>
+        <div class="product-info">
+          <h3 class="product-name">Cap Logo Mono</h3>
+          <div class="product-meta">Sarga rígida · Negro</div>
+          <div class="price-row">
+            <span class="price">S/ 24.90</span>
+          </div>
+          <button class="add-btn" data-add="Cap Logo Mono" data-price="24.90" type="button">Añadir al carrito</button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="ofertas" class="offer-section">
+    <div class="offer-grid">
+      <div class="offer-copy">
+        <div class="section-eyebrow accent-text">Outlet · Stock limitado</div>
+        <h2 class="offer-title">Hasta -40 %<br>en la colección<br>anterior</h2>
+        <p class="offer-desc">Últimas tallas de los drops 2025. Cuando se agota, no vuelve.</p>
+        <div class="countdown-row">
+          <span class="countdown-label">Termina en</span>
+          <span class="countdown-value" id="countdown">23:59:59</span>
+        </div>
+        <div class="hero-actions">
+          <button class="btn btn-accent" data-nav="product" type="button">Aprovechar oferta</button>
+          <a class="btn btn-outline-dark" href="#newsletter">Quiero mi descuento</a>
+        </div>
+      </div>
+      <div class="offer-media">
+        <img src="https://images.pexels.com/photos/19461586/pexels-photo-19461586.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Banner publicitario de oferta" class="bw-photo">
+      </div>
+    </div>
+  </section>
+
+  <section id="lookbook" class="section-block">
+    <div class="section-header">
+      <div>
+        <div class="section-eyebrow">Colección destacada</div>
+        <h2 class="section-title">Lookbook SS26</h2>
+      </div>
+      <a class="section-link" href="#bestsellers">Comprar el look</a>
+    </div>
+    <div class="lookbook-grid">
+      <div class="lookbook-large">
+        <img src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Editorial grande — horizontal" class="bw-photo">
+      </div>
+      <div class="lookbook-stack">
+        <div class="lookbook-cell">
+          <img src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Detalle de tejido" class="bw-photo">
+        </div>
+        <div class="lookbook-cell">
+          <img src="https://images.pexels.com/photos/5384429/pexels-photo-5384429.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Look completo" class="bw-photo">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-header section-header-solo">
+      <h2 class="section-title">Lo que dicen</h2>
+    </div>
+    <div class="testimonials-grid">
+      <figure class="testimonial">
+        <div class="stars">★★★★★</div>
+        <blockquote>"El gramaje del hoodie no lo he visto en ninguna marca de este precio."</blockquote>
+        <figcaption>Marcos R. · Compra verificada</figcaption>
+      </figure>
+      <figure class="testimonial">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Pedí un martes, llegó el jueves. Talla exacta a la guía."</blockquote>
+        <figcaption>Laura V. · Compra verificada</figcaption>
+      </figure>
+      <figure class="testimonial testimonial-last">
+        <div class="stars">★★★★★</div>
+        <blockquote>"Cambié la talla por WhatsApp en dos mensajes. Sin fricción."</blockquote>
+        <figcaption>Diego M. · Compra verificada</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section-block">
+    <div class="section-header">
+      <h2 class="section-title">@nexo.store</h2>
+      <div class="social-links">
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
+      </div>
+    </div>
+    <div class="social-grid">
+      <div class="social-cell"><img src="https://images.pexels.com/photos/991509/pexels-photo-991509.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="IG 1" class="bw-photo"></div>
+      <div class="social-cell"><img src="https://images.pexels.com/photos/2896853/pexels-photo-2896853.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="IG 2" class="bw-photo"></div>
+      <div class="social-cell"><img src="https://images.pexels.com/photos/3775534/pexels-photo-3775534.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="IG 3" class="bw-photo"></div>
+      <div class="social-cell"><img src="https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="IG 4" class="bw-photo"></div>
+      <div class="social-cell"><img src="https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="IG 5" class="bw-photo"></div>
+      <div class="social-cell social-cell-last"><img src="https://images.pexels.com/photos/1078958/pexels-photo-1078958.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="IG 6" class="bw-photo"></div>
+    </div>
+  </section>
+
+  <section class="section-block trust-section">
+    <div class="trust-copy">
+      <h2 class="trust-title">Comprar sin<br>riesgo</h2>
+      <div class="trust-list">
+        <div>
+          <div class="trust-item-title">Devolución gratuita 30 días</div>
+          <div class="trust-item-desc">Etiqueta prepagada dentro del paquete.</div>
+        </div>
+        <div>
+          <div class="trust-item-title">Pago protegido</div>
+          <div class="trust-item-desc">Cifrado 3D Secure. Tarjeta, Bizum, PayPal, Apple Pay.</div>
+        </div>
+        <div>
+          <div class="trust-item-title">Atención real</div>
+          <div class="trust-item-desc">Respondemos por WhatsApp de 9 a 20 h.</div>
+        </div>
+      </div>
+    </div>
+    <div class="faq-panel">
+      <div class="section-eyebrow">Preguntas sobre tu compra</div>
+      <div class="faq-item" data-faq="0">
+        <div class="faq-question"><span>¿Cuánto tarda el envío?</span><span class="faq-toggle">+</span></div>
+        <p class="faq-answer">24-48 h en península. 3-5 días para islas y Europa. Recibes seguimiento por email y WhatsApp.</p>
+      </div>
+      <div class="faq-item" data-faq="1">
+        <div class="faq-question"><span>¿Cómo elijo la talla?</span><span class="faq-toggle">+</span></div>
+        <p class="faq-answer">Los cortes son oversize. Si dudas entre dos tallas, baja una. Cada ficha incluye medidas reales de la prenda.</p>
+      </div>
+      <div class="faq-item" data-faq="2">
+        <div class="faq-question"><span>¿Puedo cambiar mi pedido?</span><span class="faq-toggle">+</span></div>
+        <p class="faq-answer">Sí, mientras no haya salido de almacén. Escríbenos por WhatsApp con tu número de pedido.</p>
+      </div>
+      <div class="faq-item faq-item-last" data-faq="3">
+        <div class="faq-question"><span>¿Los drops vuelven a reponerse?</span><span class="faq-toggle">+</span></div>
+        <p class="faq-answer">No. Cada referencia se produce una vez. Suscríbete para enterarte antes del siguiente drop.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="newsletter" class="newsletter-section">
+    <div class="newsletter-grid">
+      <div>
+        <h2 class="newsletter-title">-20 % en tu<br>primer pedido</h2>
+        <p class="newsletter-desc">Déjanos tu email y te enviamos el código al instante. Además, acceso 24 h antes a cada drop.</p>
+      </div>
+      <form class="newsletter-form" id="newsletter-form">
+        <input type="email" placeholder="tu@email.com" required>
+        <button type="submit">Quiero mi descuento</button>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ PRODUCT ============ -->
+<main class="view" data-view="product" hidden>
+  <div class="breadcrumb">
+    <span data-nav="home" role="button" tabindex="0">Inicio</span> / Hoodies / Heavy Hoodie Archive
+  </div>
+  <div class="product-detail-grid">
+    <div class="product-gallery">
+      <div class="gallery-main">
+        <img src="https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Foto principal de producto" class="bw-photo">
+      </div>
+      <div class="gallery-thumb">
+        <img src="https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="Detalle" class="bw-photo">
+      </div>
+      <div class="gallery-thumb gallery-thumb-last">
+        <img src="https://images.pexels.com/photos/31700390/pexels-photo-31700390.jpeg?auto=compress&cs=tinysrgb&w=1400" alt="En modelo" class="bw-photo">
+      </div>
+    </div>
+    <div class="product-panel">
+      <div class="stock-badge">Quedan 12 unidades</div>
+      <h1 class="product-title">Heavy Hoodie Archive</h1>
+      <div class="price-row price-row-lg">
+        <span class="price price-lg">S/ 79.90</span>
+        <span class="price-old">S/ 99.90</span>
+        <span class="discount-tag">-20 %</span>
+      </div>
+      <p class="product-desc">Felpa de algodón 480 g con interior perchado. Corte oversize, hombro caído, puños acanalados dobles. Serigrafía a un color en espalda.</p>
+      <div class="size-label">Talla · <span id="size-selected">M</span></div>
+      <div class="size-options">
+        <button class="size-btn" data-size="XS" type="button">XS</button>
+        <button class="size-btn" data-size="S" type="button">S</button>
+        <button class="size-btn size-btn-active" data-size="M" type="button">M</button>
+        <button class="size-btn" data-size="L" type="button">L</button>
+        <button class="size-btn" data-size="XL" type="button">XL</button>
+      </div>
+      <button class="buy-btn" id="add-from-product" type="button">Añadir al carrito · S/ 79.90</button>
+      <button class="addcart-btn" id="buy-now" type="button">Comprar ahora</button>
+      <div class="trust-notes">
+        <div>Envío gratis · llega el jueves 10</div>
+        <div>Devolución gratuita en 30 días</div>
+        <div>Dudas de talla: <a href="https://wa.me/34600000000" target="_blank" rel="noopener">escríbenos por WhatsApp</a></div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ============ CART ============ -->
+<main class="view" data-view="cart" hidden>
+  <div class="cart-title-wrap">
+    <h1 class="cart-title">Tu carrito</h1>
+  </div>
+  <div class="cart-grid">
+    <div class="cart-items" id="cart-items"></div>
+    <aside class="cart-summary">
+      <div class="section-eyebrow">Resumen</div>
+      <div class="summary-rows">
+        <div class="summary-row"><span>Subtotal</span><span id="cart-subtotal">S/ 0.00</span></div>
+        <div class="summary-row"><span>Envío</span><span id="cart-shipping">Gratis</span></div>
+        <div class="summary-row summary-discount"><span>Descuento NEXO20</span><span id="cart-discount">– S/ 0.00</span></div>
+      </div>
+      <div class="summary-total-row">
+        <span>Total</span>
+        <span class="summary-total" id="cart-total">S/ 0.00</span>
+      </div>
+      <button class="checkout-btn" data-nav="checkout" type="button">Finalizar compra</button>
+      <div class="secure-note">Pago seguro con Visa, Mastercard, Bizum, PayPal y Apple Pay.</div>
+    </aside>
+  </div>
+</main>
+
+<!-- ============ CHECKOUT ============ -->
+<main class="view" data-view="checkout" hidden>
+  <div class="checkout-title-wrap">
+    <h1 class="checkout-title">Checkout</h1>
+    <div class="checkout-steps">Datos · Envío · Pago</div>
+  </div>
+  <div class="checkout-grid">
+    <div class="checkout-form">
+      <div class="form-section">
+        <div class="form-title">1 · Contacto</div>
+        <div class="form-grid">
+          <input placeholder="Nombre">
+          <input placeholder="Apellidos">
+          <input placeholder="Email" type="email">
+          <input placeholder="Teléfono" type="tel">
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-title">2 · Envío</div>
+        <div class="form-grid form-grid-ship">
+          <input placeholder="Dirección">
+          <input placeholder="Código postal">
+          <input placeholder="Ciudad">
+          <input placeholder="País">
+        </div>
+      </div>
+      <div class="form-section">
+        <div class="form-title">3 · Pago</div>
+        <div class="pay-options">
+          <button class="pay-btn pay-btn-active" data-pay="Tarjeta" type="button">Tarjeta</button>
+          <button class="pay-btn" data-pay="Bizum" type="button">Bizum</button>
+          <button class="pay-btn" data-pay="PayPal" type="button">PayPal</button>
+        </div>
+        <div class="pay-selected">Seleccionado · <span id="pay-selected">Tarjeta</span></div>
+      </div>
+    </div>
+    <aside class="order-summary">
+      <div class="section-eyebrow">Tu pedido</div>
+      <div class="order-lines" id="order-lines"></div>
+      <div class="summary-rows summary-rows-bordered">
+        <div class="summary-row"><span>Envío</span><span id="checkout-shipping">Gratis</span></div>
+        <div class="summary-row summary-discount"><span>Descuento NEXO20</span><span id="checkout-discount">– S/ 0.00</span></div>
+      </div>
+      <div class="summary-total-row">
+        <span>Total</span>
+        <span class="summary-total" id="checkout-total">S/ 0.00</span>
+      </div>
+      <button class="place-order-btn" id="place-order" type="button">Pagar <span id="place-order-total">S/ 0.00</span></button>
+      <button class="back-btn" data-nav="cart" type="button">Volver al carrito</button>
+    </aside>
+  </div>
+</main>
+
+<!-- ============ DONE ============ -->
+<main class="view done-section" data-view="done" hidden>
+  <div class="section-eyebrow accent-text">Pedido confirmado</div>
+  <h1 class="done-title">Gracias.<br>Ya es tuyo.</h1>
+  <p class="done-text">Pedido <strong>#NX-24817</strong>. Te hemos enviado la confirmación por email y el seguimiento llegará por WhatsApp.</p>
+  <div class="done-actions">
+    <button class="btn btn-dark" data-nav="home" type="button">Seguir comprando</button>
+    <a class="btn btn-outline" href="https://wa.me/34600000000" target="_blank" rel="noopener">Contactar por WhatsApp</a>
+  </div>
+</main>
+
+<!-- Footer -->
+<footer id="contacto" class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">NEXO</div>
+      <p class="footer-desc">Streetwear premium de producción limitada. Diseñado en Madrid, fabricado en Portugal.</p>
+      <a class="footer-cta" href="https://wa.me/34600000000" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>
+    </div>
+    <div class="footer-links">
+      <div class="footer-col">
+        <div class="footer-col-title">Tienda</div>
+        <a href="#bestsellers">Best sellers</a>
+        <a href="#ofertas">Ofertas</a>
+        <a href="#colecciones">Categorías</a>
+        <a href="#lookbook">Lookbook</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Ayuda</div>
+        <a href="#contacto">Envíos y entregas</a>
+        <a href="#contacto">Devoluciones</a>
+        <a href="#contacto">Guía de tallas</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="footer-col">
+        <div class="footer-col-title">Redes</div>
+        <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener">TikTok</a>
+        <a href="https://youtube.com" target="_blank" rel="noopener">YouTube</a>
+        <a href="mailto:hola@nexo.store">hola@nexo.store</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 NEXO Store</span>
+      <span>Visa · Mastercard · Bizum · PayPal · Apple Pay</span>
+    </div>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

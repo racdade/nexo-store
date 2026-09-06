@@ -1,0 +1,4 @@
+.DS_Store
+node_modules/
+.image-slots.state.json
+.claude/settings.local.json

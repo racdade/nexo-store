@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Archivo:wght@400;500;600&display=swap" rel="stylesheet" />
+<script src="./image-slot.js"></script>
+<style>
+  section, main, header, .cq { container-type:inline-size; }
+  body { margin:0; background:#F2F1ED; color:#0B0B0C; font-family:'Archivo',sans-serif; -webkit-font-smoothing:antialiased; }
+  * { box-sizing:border-box; }
+  a { color:#0B0B0C; text-decoration:none; }
+  a:hover { color:#3A5BFF; }
+  nav::-webkit-scrollbar { display:none; }
+  ::selection { background:#3A5BFF; color:#fff; }
+  @keyframes nexoMarquee { from { transform:translateX(0); } to { transform:translateX(-50%); } }
+</style>
+</helmet>
+
+<div style="width:100%;max-width:100%;overflow-x:hidden;background:#F2F1ED">
+
+  <sc-if value="{{ showPromoBar }}" hint-placeholder-val="{{ true }}">
+    <div style="background:#3A5BFF;color:#fff;overflow:hidden;padding:11px 0">
+      <div style="display:flex;width:200%;animation:nexoMarquee 26s linear infinite;font-size:11.5px;letter-spacing:.22em;text-transform:uppercase;font-weight:600">
+        <div style="display:flex;gap:56px;width:50%;flex:none;padding-right:56px;white-space:nowrap">
+          <span>Envío gratis desde S/ 60</span><span>—</span><span>-20 % con el código NEXO20</span><span>—</span><span>Devoluciones en 30 días</span><span>—</span><span>Entrega en 24/48 h</span><span>—</span><span>Nueva colección disponible</span><span>—</span>
+        </div>
+        <div style="display:flex;gap:56px;width:50%;flex:none;padding-right:56px;white-space:nowrap">
+          <span>Envío gratis desde S/ 60</span><span>—</span><span>-20 % con el código NEXO20</span><span>—</span><span>Devoluciones en 30 días</span><span>—</span><span>Entrega en 24/48 h</span><span>—</span><span>Nueva colección disponible</span><span>—</span>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <header style="position:sticky;top:0;z-index:50;background:rgba(242,241,237,.92);backdrop-filter:blur(14px);border-bottom:1px solid #0B0B0C">
+    <div style="max-width:1560px;margin:0 auto;padding:0 20px;min-height:74px;display:flex;align-items:center;gap:20px;flex-wrap:wrap;row-gap:0">
+      <div onClick="{{ goHome }}" style="cursor:pointer;display:flex;align-items:center;gap:10px">
+        <div style="width:26px;height:26px;background:#0B0B0C;display:flex;align-items:center;justify-content:center;color:#F2F1ED;font-family:'Syne',sans-serif;font-weight:800;font-size:15px">N</div>
+        <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:23px;letter-spacing:.02em;text-transform:uppercase">NEXO</span>
+      </div>
+      <nav style="display:flex;gap:30px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;flex:1 1 220px;min-width:0;overflow-x:auto;overflow-y:hidden;scrollbar-width:none;white-space:nowrap;padding-bottom:2px">
+        <a href="#colecciones" style="color:#0B0B0C">Colecciones</a>
+        <a href="#bestsellers" style="color:#0B0B0C">Best sellers</a>
+        <a href="#ofertas" style="color:#3A5BFF">Ofertas</a>
+        <a href="#lookbook" style="color:#0B0B0C">Lookbook</a>
+        <a href="#contacto" style="color:#0B0B0C">Contacto</a>
+      </nav>
+      <div style="display:flex;align-items:center;gap:18px">
+        <a href="https://wa.me/34600000000" target="_blank" style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;border-bottom:1px solid #0B0B0C;padding-bottom:2px">WhatsApp</a>
+        <button onClick="{{ goCart }}" style="border:none;background:#0B0B0C;color:#F2F1ED;font-family:'Archivo',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:13px 20px;cursor:pointer;display:flex;gap:8px" style-hover="background:#3A5BFF">
+          <span>Carrito</span><span style="color:#F2F1ED;opacity:.6">{{ cartCount }}</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <sc-if value="{{ isHome }}" hint-placeholder-val="{{ true }}">
+  <main>
+
+    <section style="border-bottom:1px solid #0B0B0C;display:grid;grid-template-columns:repeat(auto-fit,minmax(420px,1fr))">
+      <div style="padding:clamp(44px,5vw,88px) clamp(22px,4vw,56px) 48px;container-type:inline-size;display:flex;flex-direction:column;justify-content:space-between;gap:56px;min-width:0">
+        <div>
+          <div style="display:inline-block;background:#3A5BFF;color:#fff;font-size:11px;letter-spacing:.2em;text-transform:uppercase;font-weight:600;padding:7px 12px;margin-bottom:30px">Colección SS26 · Drop 01</div>
+          <h1 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(34px,7.6cqi,116px);hyphens:none;overflow-wrap:normal;line-height:.86;letter-spacing:-.035em;text-transform:uppercase;margin:0">Streetwear<br />para los que<br />no piden<br /><span style="color:#3A5BFF">permiso</span></h1>
+          <p style="font-size:17px;line-height:1.5;max-width:400px;margin:28px 0 0;color:#4A4A50">Prendas técnicas de edición limitada. Producción corta, materiales pesados, cero relleno.</p>
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center">
+          <button onClick="{{ goProduct }}" style="border:none;background:#0B0B0C;color:#F2F1ED;font-family:'Archivo',sans-serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:21px 38px;cursor:pointer" style-hover="background:#3A5BFF">Comprar ahora</button>
+          <a href="#colecciones" style="border:1px solid #0B0B0C;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:20px 38px;color:#0B0B0C" style-hover="background:#0B0B0C;color:#F2F1ED">Ver colección</a>
+        </div>
+      </div>
+      <div style="position:relative;min-height:min(78vh,640px);border-left:1px solid #0B0B0C">
+        <image-slot id="nexo-hero" src="https://images.pexels.com/photos/31700390/pexels-photo-31700390.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Foto de campaña — vertical, cuerpo completo"></image-slot>
+        <div style="position:absolute;left:0;bottom:0;background:#F2F1ED;border-top:1px solid #0B0B0C;border-right:1px solid #0B0B0C;padding:18px 26px;pointer-events:none">
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B90;font-weight:600">Look 01</div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:20px;text-transform:uppercase;margin-top:4px">Heavy Hoodie · S/ 79.90</div>
+        </div>
+      </div>
+    </section>
+
+    <section style="border-bottom:1px solid #0B0B0C;display:grid;grid-template-columns:repeat(auto-fit,minmax(198px,1fr))">
+      <div style="padding:26px 28px;border-right:1px solid #0B0B0C">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;text-transform:uppercase">Envío 24/48 h</div>
+        <div style="font-size:13px;color:#6A6A70;margin-top:5px">Gratis desde S/ 60</div>
+      </div>
+      <div style="padding:26px 28px;border-right:1px solid #0B0B0C">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;text-transform:uppercase">30 días</div>
+        <div style="font-size:13px;color:#6A6A70;margin-top:5px">Devolución sin preguntas</div>
+      </div>
+      <div style="padding:26px 28px;border-right:1px solid #0B0B0C">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;text-transform:uppercase">Pago seguro</div>
+        <div style="font-size:13px;color:#6A6A70;margin-top:5px">Tarjeta, Bizum, PayPal</div>
+      </div>
+      <div style="padding:26px 28px">
+        <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;text-transform:uppercase">4,9 / 5</div>
+        <div style="font-size:13px;color:#6A6A70;margin-top:5px">2.400 pedidos valorados</div>
+      </div>
+    </section>
+
+    <section id="colecciones" style="border-bottom:1px solid #0B0B0C">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:56px 28px 30px;max-width:1560px;margin:0 auto">
+        <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(30px,4.4vw,60px);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;margin:0">Categorías</h2>
+        <div style="font-size:13px;color:#6A6A70;max-width:320px;text-align:right">Cuatro líneas. Cada una con su propio patrón y gramaje.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(198px,1fr));border-top:1px solid #0B0B0C">
+        <div onClick="{{ goProduct }}" style="cursor:pointer;position:relative;border-right:1px solid #0B0B0C;aspect-ratio:3/4;container-type:inline-size">
+          <image-slot id="nexo-cat-1" src="https://images.pexels.com/photos/6311392/pexels-photo-6311392.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Hoodies"></image-slot>
+          <div style="position:absolute;inset:auto 0 0 0;padding:20px 22px;background:linear-gradient(transparent,rgba(11,11,12,.82));color:#fff;pointer-events:none">
+            <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(17px,2.3cqi,26px);text-transform:uppercase;line-height:1.02;overflow-wrap:normal">Hoodies</div>
+            <div style="font-size:clamp(10px,1.1cqi,12px);letter-spacing:.14em;text-transform:uppercase;margin-top:6px;opacity:.85">18 productos</div>
+          </div>
+        </div>
+        <div onClick="{{ goProduct }}" style="cursor:pointer;position:relative;border-right:1px solid #0B0B0C;aspect-ratio:3/4;container-type:inline-size">
+          <image-slot id="nexo-cat-2" src="https://images.pexels.com/photos/9558577/pexels-photo-9558577.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Camisetas"></image-slot>
+          <div style="position:absolute;inset:auto 0 0 0;padding:20px 22px;background:linear-gradient(transparent,rgba(11,11,12,.82));color:#fff;pointer-events:none">
+            <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(17px,2.3cqi,26px);text-transform:uppercase;line-height:1.02;overflow-wrap:normal">Camisetas</div>
+            <div style="font-size:clamp(10px,1.1cqi,12px);letter-spacing:.14em;text-transform:uppercase;margin-top:6px;opacity:.85">24 productos</div>
+          </div>
+        </div>
+        <div onClick="{{ goProduct }}" style="cursor:pointer;position:relative;border-right:1px solid #0B0B0C;aspect-ratio:3/4;container-type:inline-size">
+          <image-slot id="nexo-cat-3" src="https://images.pexels.com/photos/1082529/pexels-photo-1082529.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Pantalones"></image-slot>
+          <div style="position:absolute;inset:auto 0 0 0;padding:20px 22px;background:linear-gradient(transparent,rgba(11,11,12,.82));color:#fff;pointer-events:none">
+            <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(17px,2.3cqi,26px);text-transform:uppercase;line-height:1.02;overflow-wrap:normal">Pantalones</div>
+            <div style="font-size:clamp(10px,1.1cqi,12px);letter-spacing:.14em;text-transform:uppercase;margin-top:6px;opacity:.85">12 productos</div>
+          </div>
+        </div>
+        <div onClick="{{ goProduct }}" style="cursor:pointer;position:relative;aspect-ratio:3/4;container-type:inline-size">
+          <image-slot id="nexo-cat-4" src="https://images.pexels.com/photos/8386654/pexels-photo-8386654.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Accesorios"></image-slot>
+          <div style="position:absolute;inset:auto 0 0 0;padding:20px 22px;background:linear-gradient(transparent,rgba(11,11,12,.82));color:#fff;pointer-events:none">
+            <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(17px,2.3cqi,26px);text-transform:uppercase;line-height:1.02;overflow-wrap:normal">Accesorios</div>
+            <div style="font-size:clamp(10px,1.1cqi,12px);letter-spacing:.14em;text-transform:uppercase;margin-top:6px;opacity:.85">9 productos</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="bestsellers" style="border-bottom:1px solid #0B0B0C">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:56px 28px 30px;max-width:1560px;margin:0 auto">
+        <div>
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#3A5BFF;font-weight:600;margin-bottom:14px">Lo más vendido</div>
+          <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(30px,4.4vw,60px);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;margin:0">Best sellers</h2>
+        </div>
+        <a href="#colecciones" style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;border-bottom:1px solid #0B0B0C;padding-bottom:3px">Ver colección</a>
+      </div>
+      <div onClick="{{ onAddClick }}" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(198px,1fr));border-top:1px solid #0B0B0C">
+        <article style="border-right:1px solid #0B0B0C;padding:0 0 22px">
+          <div onClick="{{ goProduct }}" style="cursor:pointer;position:relative;aspect-ratio:4/5;border-bottom:1px solid #0B0B0C">
+            <image-slot id="nexo-p1" src="https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Producto 01"></image-slot>
+            <div style="position:absolute;top:14px;left:14px;background:#0B0B0C;color:#fff;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:6px 10px;pointer-events:none">Top 1</div>
+          </div>
+          <div style="padding:18px 22px 0">
+            <h3 style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;margin:0;line-height:1.1">Heavy Hoodie Archive</h3>
+            <div style="font-size:13px;color:#8B8B90;margin-top:4px">Algodón 480 g · Negro</div>
+            <div style="display:flex;align-items:baseline;gap:10px;margin-top:12px">
+              <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:20px">S/ 79.90</span>
+              <span style="font-size:14px;color:#8B8B90;text-decoration:line-through">S/ 99.90</span>
+            </div>
+            <button data-add="Heavy Hoodie Archive" data-price="79.90" style="margin-top:16px;width:100%;border:1px solid #0B0B0C;background:transparent;color:#0B0B0C;font-family:'Archivo',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:15px 0;cursor:pointer" style-hover="background:#0B0B0C;color:#F2F1ED">Añadir al carrito</button>
+          </div>
+        </article>
+        <article style="border-right:1px solid #0B0B0C;padding:0 0 22px">
+          <div onClick="{{ goProduct }}" style="cursor:pointer;position:relative;aspect-ratio:4/5;border-bottom:1px solid #0B0B0C">
+            <image-slot id="nexo-p2" src="https://images.pexels.com/photos/13094146/pexels-photo-13094146.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Producto 02"></image-slot>
+          </div>
+          <div style="padding:18px 22px 0">
+            <h3 style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;margin:0;line-height:1.1">Tee Oversize Grid</h3>
+            <div style="font-size:13px;color:#8B8B90;margin-top:4px">Algodón 240 g · Hueso</div>
+            <div style="display:flex;align-items:baseline;gap:10px;margin-top:12px">
+              <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:20px">S/ 34.90</span>
+            </div>
+            <button data-add="Tee Oversize Grid" data-price="34.90" style="margin-top:16px;width:100%;border:1px solid #0B0B0C;background:transparent;color:#0B0B0C;font-family:'Archivo',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:15px 0;cursor:pointer" style-hover="background:#0B0B0C;color:#F2F1ED">Añadir al carrito</button>
+          </div>
+        </article>
+        <article style="border-right:1px solid #0B0B0C;padding:0 0 22px">
+          <div onClick="{{ goProduct }}" style="cursor:pointer;position:relative;aspect-ratio:4/5;border-bottom:1px solid #0B0B0C">
+            <image-slot id="nexo-p3" src="https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Producto 03"></image-slot>
+            <div style="position:absolute;top:14px;left:14px;background:#3A5BFF;color:#fff;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:6px 10px;pointer-events:none">-30 %</div>
+          </div>
+          <div style="padding:18px 22px 0">
+            <h3 style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;margin:0;line-height:1.1">Cargo Pant Utility</h3>
+            <div style="font-size:13px;color:#8B8B90;margin-top:4px">Ripstop técnico · Grafito</div>
+            <div style="display:flex;align-items:baseline;gap:10px;margin-top:12px">
+              <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:20px;color:#3A5BFF">S/ 62.90</span>
+              <span style="font-size:14px;color:#8B8B90;text-decoration:line-through">S/ 89.90</span>
+            </div>
+            <button data-add="Cargo Pant Utility" data-price="62.90" style="margin-top:16px;width:100%;border:1px solid #0B0B0C;background:transparent;color:#0B0B0C;font-family:'Archivo',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:15px 0;cursor:pointer" style-hover="background:#0B0B0C;color:#F2F1ED">Añadir al carrito</button>
+          </div>
+        </article>
+        <article style="padding:0 0 22px">
+          <div onClick="{{ goProduct }}" style="cursor:pointer;position:relative;aspect-ratio:4/5;border-bottom:1px solid #0B0B0C">
+            <image-slot id="nexo-p4" src="https://images.pexels.com/photos/6046183/pexels-photo-6046183.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Producto 04"></image-slot>
+          </div>
+          <div style="padding:18px 22px 0">
+            <h3 style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase;margin:0;line-height:1.1">Cap Logo Mono</h3>
+            <div style="font-size:13px;color:#8B8B90;margin-top:4px">Sarga rígida · Negro</div>
+            <div style="display:flex;align-items:baseline;gap:10px;margin-top:12px">
+              <span style="font-family:'Syne',sans-serif;font-weight:700;font-size:20px">S/ 24.90</span>
+            </div>
+            <button data-add="Cap Logo Mono" data-price="24.90" style="margin-top:16px;width:100%;border:1px solid #0B0B0C;background:transparent;color:#0B0B0C;font-family:'Archivo',sans-serif;font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:15px 0;cursor:pointer" style-hover="background:#0B0B0C;color:#F2F1ED">Añadir al carrito</button>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="ofertas" style="background:#0B0B0C;color:#F2F1ED;border-bottom:1px solid #0B0B0C">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr))">
+        <div style="padding:clamp(44px,5vw,72px) clamp(22px,4vw,56px);container-type:inline-size">
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#3A5BFF;font-weight:600">Outlet · Stock limitado</div>
+          <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(32px,6.2cqi,88px);hyphens:none;overflow-wrap:normal;line-height:.88;letter-spacing:-.035em;text-transform:uppercase;margin:20px 0 0">Hasta -40 %<br />en la colección<br />anterior</h2>
+          <p style="font-size:16px;line-height:1.5;max-width:420px;color:#A9A9AE;margin:24px 0 0">Últimas tallas de los drops 2025. Cuando se agota, no vuelve.</p>
+          <sc-if value="{{ showCountdown }}" hint-placeholder-val="{{ true }}">
+            <div style="display:flex;align-items:center;gap:14px;margin-top:34px">
+              <span style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B90;font-weight:600">Termina en</span>
+              <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:34px;letter-spacing:-.02em;color:#F2F1ED">{{ countdown }}</span>
+            </div>
+          </sc-if>
+          <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:34px">
+            <button onClick="{{ goProduct }}" style="border:none;background:#3A5BFF;color:#fff;font-family:'Archivo',sans-serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:21px 38px;cursor:pointer" style-hover="background:#F2F1ED;color:#0B0B0C">Aprovechar oferta</button>
+            <a href="#newsletter" style="border:1px solid #55555C;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:20px 38px;color:#F2F1ED" style-hover="border-color:#F2F1ED">Quiero mi descuento</a>
+          </div>
+        </div>
+        <div style="position:relative;min-height:520px;border-left:1px solid #2A2A2E">
+          <image-slot id="nexo-offer" src="https://images.pexels.com/photos/19461586/pexels-photo-19461586.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Banner publicitario de oferta"></image-slot>
+        </div>
+      </div>
+    </section>
+
+    <section id="lookbook" style="border-bottom:1px solid #0B0B0C">
+      <div style="padding:56px 28px 30px;max-width:1560px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
+        <div>
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B90;font-weight:600;margin-bottom:14px">Colección destacada</div>
+          <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(30px,4.4vw,60px);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;margin:0">Lookbook SS26</h2>
+        </div>
+        <a href="#bestsellers" style="font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;border-bottom:1px solid #0B0B0C;padding-bottom:3px">Comprar el look</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));border-top:1px solid #0B0B0C">
+        <div style="position:relative;min-height:620px;border-right:1px solid #0B0B0C">
+          <image-slot id="nexo-look-1" src="https://images.pexels.com/photos/1040945/pexels-photo-1040945.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Editorial grande — horizontal"></image-slot>
+        </div>
+        <div style="display:grid;grid-template-rows:1fr 1fr">
+          <div style="position:relative;min-height:310px;border-bottom:1px solid #0B0B0C">
+            <image-slot id="nexo-look-2" src="https://images.pexels.com/photos/1926769/pexels-photo-1926769.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Detalle de tejido"></image-slot>
+          </div>
+          <div style="position:relative;min-height:310px">
+            <image-slot id="nexo-look-3" src="https://images.pexels.com/photos/5384429/pexels-photo-5384429.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Look completo"></image-slot>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section style="border-bottom:1px solid #0B0B0C">
+      <div style="padding:56px 28px 30px;max-width:1560px;margin:0 auto">
+        <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(30px,4.4vw,60px);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;margin:0">Lo que dicen</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));border-top:1px solid #0B0B0C">
+        <figure style="margin:0;padding:44px 34px;border-right:1px solid #0B0B0C">
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:#3A5BFF;letter-spacing:.1em">★★★★★</div>
+          <blockquote style="margin:20px 0 0;font-family:'Syne',sans-serif;font-weight:600;font-size:22px;line-height:1.28;letter-spacing:-.01em">“El gramaje del hoodie no lo he visto en ninguna marca de este precio.”</blockquote>
+          <figcaption style="font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#8B8B90;margin-top:22px;font-weight:600">Marcos R. · Compra verificada</figcaption>
+        </figure>
+        <figure style="margin:0;padding:44px 34px;border-right:1px solid #0B0B0C">
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:#3A5BFF;letter-spacing:.1em">★★★★★</div>
+          <blockquote style="margin:20px 0 0;font-family:'Syne',sans-serif;font-weight:600;font-size:22px;line-height:1.28;letter-spacing:-.01em">“Pedí un martes, llegó el jueves. Talla exacta a la guía.”</blockquote>
+          <figcaption style="font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#8B8B90;margin-top:22px;font-weight:600">Laura V. · Compra verificada</figcaption>
+        </figure>
+        <figure style="margin:0;padding:44px 34px">
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:15px;color:#3A5BFF;letter-spacing:.1em">★★★★★</div>
+          <blockquote style="margin:20px 0 0;font-family:'Syne',sans-serif;font-weight:600;font-size:22px;line-height:1.28;letter-spacing:-.01em">“Cambié la talla por WhatsApp en dos mensajes. Sin fricción.”</blockquote>
+          <figcaption style="font-size:12.5px;letter-spacing:.1em;text-transform:uppercase;color:#8B8B90;margin-top:22px;font-weight:600">Diego M. · Compra verificada</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <sc-if value="{{ showSocialFeed }}" hint-placeholder-val="{{ true }}">
+    <section style="border-bottom:1px solid #0B0B0C">
+      <div style="padding:56px 28px 30px;max-width:1560px;margin:0 auto;display:flex;justify-content:space-between;align-items:flex-end;gap:24px">
+        <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(30px,4.4vw,60px);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;margin:0">@nexo.store</h2>
+        <div style="display:flex;gap:22px;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">
+          <a href="https://instagram.com" target="_blank" style="border-bottom:1px solid #0B0B0C;padding-bottom:3px">Instagram</a>
+          <a href="https://tiktok.com" target="_blank" style="border-bottom:1px solid #0B0B0C;padding-bottom:3px">TikTok</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));border-top:1px solid #0B0B0C">
+        <div style="aspect-ratio:1;border-right:1px solid #0B0B0C"><image-slot id="nexo-ig-1" src="https://images.pexels.com/photos/991509/pexels-photo-991509.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="IG 1"></image-slot></div>
+        <div style="aspect-ratio:1;border-right:1px solid #0B0B0C"><image-slot id="nexo-ig-2" src="https://images.pexels.com/photos/2896853/pexels-photo-2896853.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="IG 2"></image-slot></div>
+        <div style="aspect-ratio:1;border-right:1px solid #0B0B0C"><image-slot id="nexo-ig-3" src="https://images.pexels.com/photos/3775534/pexels-photo-3775534.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="IG 3"></image-slot></div>
+        <div style="aspect-ratio:1;border-right:1px solid #0B0B0C"><image-slot id="nexo-ig-4" src="https://images.pexels.com/photos/5480696/pexels-photo-5480696.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="IG 4"></image-slot></div>
+        <div style="aspect-ratio:1;border-right:1px solid #0B0B0C"><image-slot id="nexo-ig-5" src="https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="IG 5"></image-slot></div>
+        <div style="aspect-ratio:1"><image-slot id="nexo-ig-6" src="https://images.pexels.com/photos/1078958/pexels-photo-1078958.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="IG 6"></image-slot></div>
+      </div>
+    </section>
+    </sc-if>
+
+    <section style="border-bottom:1px solid #0B0B0C;display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr))">
+      <div style="padding:clamp(40px,4.5vw,64px) clamp(22px,4vw,56px);border-right:1px solid #0B0B0C">
+        <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(30px,3.4vw,52px);line-height:.92;letter-spacing:-.03em;text-transform:uppercase;margin:0">Comprar sin<br />riesgo</h2>
+        <div style="margin-top:36px;display:flex;flex-direction:column;gap:26px;max-width:420px">
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase">Devolución gratuita 30 días</div>
+            <div style="font-size:14.5px;color:#6A6A70;line-height:1.5;margin-top:5px">Etiqueta prepagada dentro del paquete.</div>
+          </div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase">Pago protegido</div>
+            <div style="font-size:14.5px;color:#6A6A70;line-height:1.5;margin-top:5px">Cifrado 3D Secure. Tarjeta, Bizum, PayPal, Apple Pay.</div>
+          </div>
+          <div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:16px;text-transform:uppercase">Atención real</div>
+            <div style="font-size:14.5px;color:#6A6A70;line-height:1.5;margin-top:5px">Respondemos por WhatsApp de 9 a 20 h.</div>
+          </div>
+        </div>
+      </div>
+      <div onClick="{{ onFaqClick }}" style="padding:clamp(40px,4.5vw,64px) clamp(22px,4vw,56px)">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B90;font-weight:600;margin-bottom:26px">Preguntas sobre tu compra</div>
+        <div data-faq="0" style="border-top:1px solid #0B0B0C;padding:22px 0;cursor:pointer">
+          <div style="display:flex;justify-content:space-between;gap:18px;font-family:'Syne',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase"><span>¿Cuánto tarda el envío?</span><span style="color:#3A5BFF">{{ faqMark0 }}</span></div>
+          <sc-if value="{{ faq0 }}" hint-placeholder-val="{{ false }}"><p style="margin:14px 0 0;font-size:15px;line-height:1.55;color:#4A4A50;max-width:520px">24-48 h en península. 3-5 días para islas y Europa. Recibes seguimiento por email y WhatsApp.</p></sc-if>
+        </div>
+        <div data-faq="1" style="border-top:1px solid #0B0B0C;padding:22px 0;cursor:pointer">
+          <div style="display:flex;justify-content:space-between;gap:18px;font-family:'Syne',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase"><span>¿Cómo elijo la talla?</span><span style="color:#3A5BFF">{{ faqMark1 }}</span></div>
+          <sc-if value="{{ faq1 }}" hint-placeholder-val="{{ false }}"><p style="margin:14px 0 0;font-size:15px;line-height:1.55;color:#4A4A50;max-width:520px">Los cortes son oversize. Si dudas entre dos tallas, baja una. Cada ficha incluye medidas reales de la prenda.</p></sc-if>
+        </div>
+        <div data-faq="2" style="border-top:1px solid #0B0B0C;padding:22px 0;cursor:pointer">
+          <div style="display:flex;justify-content:space-between;gap:18px;font-family:'Syne',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase"><span>¿Puedo cambiar mi pedido?</span><span style="color:#3A5BFF">{{ faqMark2 }}</span></div>
+          <sc-if value="{{ faq2 }}" hint-placeholder-val="{{ false }}"><p style="margin:14px 0 0;font-size:15px;line-height:1.55;color:#4A4A50;max-width:520px">Sí, mientras no haya salido de almacén. Escríbenos por WhatsApp con tu número de pedido.</p></sc-if>
+        </div>
+        <div data-faq="3" style="border-top:1px solid #0B0B0C;border-bottom:1px solid #0B0B0C;padding:22px 0;cursor:pointer">
+          <div style="display:flex;justify-content:space-between;gap:18px;font-family:'Syne',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase"><span>¿Los drops vuelven a reponerse?</span><span style="color:#3A5BFF">{{ faqMark3 }}</span></div>
+          <sc-if value="{{ faq3 }}" hint-placeholder-val="{{ false }}"><p style="margin:14px 0 0;font-size:15px;line-height:1.55;color:#4A4A50;max-width:520px">No. Cada referencia se produce una vez. Suscríbete para enterarte antes del siguiente drop.</p></sc-if>
+        </div>
+      </div>
+    </section>
+
+    <section id="newsletter" style="background:#3A5BFF;color:#fff;border-bottom:1px solid #0B0B0C;padding:clamp(48px,5vw,78px) clamp(22px,4vw,56px)">
+      <div style="max-width:1560px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:48px;align-items:end">
+        <div>
+          <h2 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(30px,5.6cqi,76px);hyphens:none;overflow-wrap:normal;line-height:.9;letter-spacing:-.035em;text-transform:uppercase;margin:0">-20 % en tu<br />primer pedido</h2>
+          <p style="font-size:16px;line-height:1.5;margin:22px 0 0;max-width:440px;color:rgba(255,255,255,.88)">Déjanos tu email y te enviamos el código al instante. Además, acceso 24 h antes a cada drop.</p>
+        </div>
+        <div style="display:flex;gap:0;flex-wrap:wrap">
+          <input type="email" placeholder="tu@email.com" style="flex:1;min-width:220px;border:1px solid #fff;background:transparent;color:#fff;font-family:'Archivo',sans-serif;font-size:15px;padding:20px 22px;outline:none" />
+          <button style="border:1px solid #fff;background:#fff;color:#0B0B0C;font-family:'Archivo',sans-serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:20px 32px;cursor:pointer" style-hover="background:#0B0B0C;color:#fff">Quiero mi descuento</button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isProduct }}" hint-placeholder-val="{{ false }}">
+  <main style="border-bottom:1px solid #0B0B0C">
+    <div style="padding:20px 28px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8B8B90;border-bottom:1px solid #0B0B0C;font-weight:600">
+      <span onClick="{{ goHome }}" style="cursor:pointer;color:#0B0B0C">Inicio</span> / Hoodies / Heavy Hoodie Archive
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr))">
+      <div style="display:grid;grid-template-columns:1fr 1fr;border-right:1px solid #0B0B0C">
+        <div style="grid-column:span 2;aspect-ratio:4/3.2;border-bottom:1px solid #0B0B0C"><image-slot id="nexo-pd-1" src="https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Foto principal de producto"></image-slot></div>
+        <div style="aspect-ratio:1;border-right:1px solid #0B0B0C"><image-slot id="nexo-pd-2" src="https://images.pexels.com/photos/934070/pexels-photo-934070.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="Detalle"></image-slot></div>
+        <div style="aspect-ratio:1"><image-slot id="nexo-pd-3" src="https://images.pexels.com/photos/31700390/pexels-photo-31700390.jpeg?auto=compress&cs=tinysrgb&w=1400" style="filter:grayscale(1) contrast(1.06) brightness(1.02)" shape="rect" placeholder="En modelo"></image-slot></div>
+      </div>
+      <div style="padding:clamp(36px,4vw,56px) clamp(22px,3.4vw,48px);display:flex;flex-direction:column;gap:0">
+        <div style="display:inline-block;align-self:flex-start;background:#3A5BFF;color:#fff;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;font-weight:600;padding:6px 10px">Quedan 12 unidades</div>
+        <h1 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(34px,3.6vw,54px);line-height:.94;letter-spacing:-.03em;text-transform:uppercase;margin:22px 0 0">Heavy Hoodie Archive</h1>
+        <div style="display:flex;align-items:baseline;gap:12px;margin-top:18px">
+          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:34px">S/ 79.90</span>
+          <span style="font-size:16px;color:#8B8B90;text-decoration:line-through">S/ 99.90</span>
+          <span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#3A5BFF;font-weight:600">-20 %</span>
+        </div>
+        <p style="font-size:15.5px;line-height:1.6;color:#4A4A50;margin:20px 0 0;max-width:440px">Felpa de algodón 480 g con interior perchado. Corte oversize, hombro caído, puños acanalados dobles. Serigrafía a un color en espalda.</p>
+        <div style="margin-top:34px;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B90;font-weight:600">Talla · {{ size }}</div>
+        <div onClick="{{ onSizeClick }}" style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
+          <button data-size="XS" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;width:54px;height:50px;cursor:pointer">XS</button>
+          <button data-size="S" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;width:54px;height:50px;cursor:pointer">S</button>
+          <button data-size="M" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;width:54px;height:50px;cursor:pointer">M</button>
+          <button data-size="L" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;width:54px;height:50px;cursor:pointer">L</button>
+          <button data-size="XL" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:13px;font-weight:600;width:54px;height:50px;cursor:pointer">XL</button>
+        </div>
+        <button onClick="{{ addFromProduct }}" style="margin-top:30px;border:none;background:#0B0B0C;color:#F2F1ED;font-family:'Archivo',sans-serif;font-size:13.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:24px 0;width:100%;cursor:pointer" style-hover="background:#3A5BFF">Añadir al carrito · S/ 79.90</button>
+        <button onClick="{{ buyNow }}" style="margin-top:10px;border:1px solid #0B0B0C;background:transparent;color:#0B0B0C;font-family:'Archivo',sans-serif;font-size:13.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:23px 0;width:100%;cursor:pointer" style-hover="background:#0B0B0C;color:#F2F1ED">Comprar ahora</button>
+        <div style="margin-top:26px;display:flex;flex-direction:column;gap:9px;font-size:13.5px;color:#6A6A70">
+          <div>Envío gratis · llega el jueves 10</div>
+          <div>Devolución gratuita en 30 días</div>
+          <div>Dudas de talla: <a href="https://wa.me/34600000000" target="_blank" style="border-bottom:1px solid #0B0B0C">escríbenos por WhatsApp</a></div>
+        </div>
+      </div>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isCart }}" hint-placeholder-val="{{ false }}">
+  <main style="border-bottom:1px solid #0B0B0C;min-height:60vh">
+    <div style="padding:48px 28px 28px;max-width:1560px;margin:0 auto">
+      <h1 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(34px,4.4vw,64px);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;margin:0">Tu carrito</h1>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));border-top:1px solid #0B0B0C">
+      <div onClick="{{ onCartClick }}" style="border-right:1px solid #0B0B0C">
+        <sc-for list="{{ cart }}" as="line" hint-placeholder-count="2">
+          <div style="display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:22px;align-items:center;padding:24px 28px;border-bottom:1px solid #0B0B0C">
+            <div style="aspect-ratio:4/5;background:#E4E3DE"></div>
+            <div>
+              <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:18px;text-transform:uppercase">{{ line.name }}</div>
+              <div style="font-size:13px;color:#8B8B90;margin-top:4px">Talla {{ line.size }}</div>
+              <div style="display:flex;align-items:center;gap:0;margin-top:14px">
+                <button data-dec="{{ line.i }}" style="border:1px solid #0B0B0C;background:transparent;width:38px;height:38px;font-size:16px;cursor:pointer;font-family:'Archivo',sans-serif">–</button>
+                <span style="width:46px;height:38px;border-top:1px solid #0B0B0C;border-bottom:1px solid #0B0B0C;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:600">{{ line.qty }}</span>
+                <button data-inc="{{ line.i }}" style="border:1px solid #0B0B0C;background:transparent;width:38px;height:38px;font-size:16px;cursor:pointer;font-family:'Archivo',sans-serif">+</button>
+                <button data-del="{{ line.i }}" style="border:none;background:transparent;margin-left:18px;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#8B8B90;cursor:pointer;font-family:'Archivo',sans-serif;font-weight:600">Quitar</button>
+              </div>
+            </div>
+            <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:20px">{{ line.total }}</div>
+          </div>
+        </sc-for>
+        <sc-if value="{{ cartEmpty }}" hint-placeholder-val="{{ false }}">
+          <div style="padding:56px 28px">
+            <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:22px;text-transform:uppercase">Tu carrito está vacío</div>
+            <button onClick="{{ goHome }}" style="margin-top:20px;border:none;background:#0B0B0C;color:#F2F1ED;font-family:'Archivo',sans-serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:19px 34px;cursor:pointer">Ver colección</button>
+          </div>
+        </sc-if>
+      </div>
+      <aside style="padding:34px 34px 44px">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B90;font-weight:600">Resumen</div>
+        <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px;font-size:15px">
+          <div style="display:flex;justify-content:space-between"><span>Subtotal</span><span style="font-weight:600">{{ subtotal }}</span></div>
+          <div style="display:flex;justify-content:space-between"><span>Envío</span><span style="font-weight:600">{{ shipping }}</span></div>
+          <div style="display:flex;justify-content:space-between;color:#3A5BFF"><span>Descuento NEXO20</span><span style="font-weight:600">{{ discount }}</span></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #0B0B0C;margin-top:22px;padding-top:20px">
+          <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">Total</span>
+          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:30px">{{ total }}</span>
+        </div>
+        <button onClick="{{ goCheckout }}" style="margin-top:24px;border:none;background:#0B0B0C;color:#F2F1ED;font-family:'Archivo',sans-serif;font-size:13.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:23px 0;width:100%;cursor:pointer" style-hover="background:#3A5BFF">Finalizar compra</button>
+        <div style="margin-top:16px;font-size:13px;color:#6A6A70;line-height:1.5">Pago seguro con Visa, Mastercard, Bizum, PayPal y Apple Pay.</div>
+      </aside>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isCheckout }}" hint-placeholder-val="{{ false }}">
+  <main style="border-bottom:1px solid #0B0B0C">
+    <div style="padding:48px 28px 28px;max-width:1560px;margin:0 auto">
+      <h1 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(34px,4.4vw,64px);line-height:.9;letter-spacing:-.03em;text-transform:uppercase;margin:0">Checkout</h1>
+      <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8B8B90;margin-top:14px;font-weight:600">Datos · Envío · Pago</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));border-top:1px solid #0B0B0C">
+      <div style="border-right:1px solid #0B0B0C;padding:36px 34px 56px;display:flex;flex-direction:column;gap:34px">
+        <div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;margin-bottom:16px">1 · Contacto</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+            <input placeholder="Nombre" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:15px;padding:17px 16px;outline:none;min-width:0" />
+            <input placeholder="Apellidos" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:15px;padding:17px 16px;outline:none;min-width:0" />
+            <input placeholder="Email" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:15px;padding:17px 16px;outline:none;min-width:0" />
+            <input placeholder="Teléfono" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:15px;padding:17px 16px;outline:none;min-width:0" />
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;margin-bottom:16px">2 · Envío</div>
+          <div style="display:grid;grid-template-columns:2fr 1fr;gap:10px">
+            <input placeholder="Dirección" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:15px;padding:17px 16px;outline:none;min-width:0" />
+            <input placeholder="Código postal" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:15px;padding:17px 16px;outline:none;min-width:0" />
+            <input placeholder="Ciudad" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:15px;padding:17px 16px;outline:none;min-width:0" />
+            <input placeholder="País" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:15px;padding:17px 16px;outline:none;min-width:0" />
+          </div>
+        </div>
+        <div>
+          <div style="font-family:'Syne',sans-serif;font-weight:700;font-size:17px;text-transform:uppercase;margin-bottom:16px">3 · Pago</div>
+          <div onClick="{{ onPayClick }}" style="display:flex;gap:8px;flex-wrap:wrap">
+            <button data-pay="Tarjeta" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:16px 22px;cursor:pointer">Tarjeta</button>
+            <button data-pay="Bizum" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:16px 22px;cursor:pointer">Bizum</button>
+            <button data-pay="PayPal" style="border:1px solid #0B0B0C;background:transparent;font-family:'Archivo',sans-serif;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:16px 22px;cursor:pointer">PayPal</button>
+          </div>
+          <div style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#3A5BFF;margin-top:14px;font-weight:600">Seleccionado · {{ pay }}</div>
+        </div>
+      </div>
+      <aside style="padding:36px 34px 44px">
+        <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B90;font-weight:600">Tu pedido</div>
+        <div style="margin-top:22px;display:flex;flex-direction:column;gap:12px;font-size:15px">
+          <sc-for list="{{ cart }}" as="line" hint-placeholder-count="2">
+            <div style="display:flex;justify-content:space-between;gap:14px"><span>{{ line.qty }} × {{ line.name }}</span><span style="font-weight:600">{{ line.total }}</span></div>
+          </sc-for>
+        </div>
+        <div style="border-top:1px solid #D6D5D0;margin-top:20px;padding-top:16px;display:flex;flex-direction:column;gap:10px;font-size:15px">
+          <div style="display:flex;justify-content:space-between"><span>Envío</span><span style="font-weight:600">{{ shipping }}</span></div>
+          <div style="display:flex;justify-content:space-between;color:#3A5BFF"><span>Descuento NEXO20</span><span style="font-weight:600">{{ discount }}</span></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #0B0B0C;margin-top:18px;padding-top:18px">
+          <span style="font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:600">Total</span>
+          <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:30px">{{ total }}</span>
+        </div>
+        <button onClick="{{ placeOrder }}" style="margin-top:24px;border:none;background:#3A5BFF;color:#fff;font-family:'Archivo',sans-serif;font-size:13.5px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:23px 0;width:100%;cursor:pointer" style-hover="background:#0B0B0C">Pagar {{ total }}</button>
+        <button onClick="{{ goCart }}" style="margin-top:10px;border:none;background:transparent;color:#6A6A70;font-family:'Archivo',sans-serif;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;padding:8px 0;width:100%;cursor:pointer">Volver al carrito</button>
+      </aside>
+    </div>
+  </main>
+  </sc-if>
+
+  <sc-if value="{{ isDone }}" hint-placeholder-val="{{ false }}">
+  <main style="border-bottom:1px solid #0B0B0C;padding:120px 28px;text-align:center">
+    <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#3A5BFF;font-weight:600">Pedido confirmado</div>
+    <h1 style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(38px,6vw,92px);line-height:.9;letter-spacing:-.035em;text-transform:uppercase;margin:22px auto 0;max-width:900px">Gracias.<br />Ya es tuyo.</h1>
+    <p style="font-size:16px;color:#4A4A50;margin:22px auto 0;max-width:460px;line-height:1.55">Pedido <strong>#NX-24817</strong>. Te hemos enviado la confirmación por email y el seguimiento llegará por WhatsApp.</p>
+    <div style="display:flex;gap:12px;justify-content:center;margin-top:34px;flex-wrap:wrap">
+      <button onClick="{{ goHome }}" style="border:none;background:#0B0B0C;color:#F2F1ED;font-family:'Archivo',sans-serif;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:21px 38px;cursor:pointer" style-hover="background:#3A5BFF">Seguir comprando</button>
+      <a href="https://wa.me/34600000000" target="_blank" style="border:1px solid #0B0B0C;font-size:13px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;padding:20px 38px">Contactar por WhatsApp</a>
+    </div>
+  </main>
+  </sc-if>
+
+  <footer id="contacto" style="background:#0B0B0C;color:#F2F1ED;padding:72px 28px 34px">
+    <div style="max-width:1560px;margin:0 auto">
+      <div style="display:flex;flex-direction:column;gap:52px">
+        <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-start;gap:32px">
+          <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(40px,6vw,72px);letter-spacing:-.02em;text-transform:uppercase;line-height:1">NEXO</div>
+          <p style="font-size:14.5px;color:#A9A9AE;line-height:1.55;margin:0;max-width:340px;flex:1 1 260px">Streetwear premium de producción limitada. Diseñado en Madrid, fabricado en Portugal.</p>
+          <a href="https://wa.me/34600000000" target="_blank" style="background:#3A5BFF;color:#fff;font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:16px 26px;white-space:nowrap" style-hover="background:#F2F1ED;color:#0B0B0C">Escríbenos por WhatsApp</a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:28px">
+        <div>
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B90;font-weight:600">Tienda</div>
+          <div style="display:flex;flex-direction:column;gap:11px;margin-top:18px;font-size:14.5px">
+            <a href="#bestsellers" style="color:#F2F1ED">Best sellers</a>
+            <a href="#ofertas" style="color:#F2F1ED">Ofertas</a>
+            <a href="#colecciones" style="color:#F2F1ED">Categorías</a>
+            <a href="#lookbook" style="color:#F2F1ED">Lookbook</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B90;font-weight:600">Ayuda</div>
+          <div style="display:flex;flex-direction:column;gap:11px;margin-top:18px;font-size:14.5px">
+            <a href="#contacto" style="color:#F2F1ED">Envíos y entregas</a>
+            <a href="#contacto" style="color:#F2F1ED">Devoluciones</a>
+            <a href="#contacto" style="color:#F2F1ED">Guía de tallas</a>
+            <a href="#contacto" style="color:#F2F1ED">Contacto</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:#8B8B90;font-weight:600">Redes</div>
+          <div style="display:flex;flex-direction:column;gap:11px;margin-top:18px;font-size:14.5px">
+            <a href="https://instagram.com" target="_blank" style="color:#F2F1ED">Instagram</a>
+            <a href="https://tiktok.com" target="_blank" style="color:#F2F1ED">TikTok</a>
+            <a href="https://youtube.com" target="_blank" style="color:#F2F1ED">YouTube</a>
+            <a href="mailto:hola@nexo.store" style="color:#F2F1ED">hola@nexo.store</a>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div style="display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;border-top:1px solid #2A2A2E;margin-top:54px;padding-top:22px;font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:#8B8B90">
+        <span>© 2026 NEXO Store</span>
+        <span>Visa · Mastercard · Bizum · PayPal · Apple Pay</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;showPromoBar&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secciones&quot;},&quot;showCountdown&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secciones&quot;},&quot;showSocialFeed&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Secciones&quot;}}">
+class Component extends DCLogic {
+  state = {
+    route: 'home',
+    size: 'M',
+    pay: 'Tarjeta',
+    faq: 0,
+    now: Date.now(),
+    cart: [
+      { name: 'Heavy Hoodie Archive', price: 79.9, size: 'M', qty: 1 },
+      { name: 'Cap Logo Mono', price: 24.9, size: 'Única', qty: 1 }
+    ]
+  };
+
+  componentDidMount() {
+    this.timer = setInterval(() => this.setState({ now: Date.now() }), 1000);
+  }
+  componentWillUnmount() { clearInterval(this.timer); }
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.route !== this.state.route) window.scrollTo(0, 0);
+  }
+
+  eur(n) { return 'S/ ' + n.toFixed(2); }
+
+  go(route) { return () => this.setState({ route }); }
+
+  add(name, price, size) {
+    this.setState(s => {
+      const i = s.cart.findIndex(l => l.name === name && l.size === size);
+      if (i > -1) {
+        const cart = s.cart.slice();
+        cart[i] = Object.assign({}, cart[i], { qty: cart[i].qty + 1 });
+        return { cart };
+      }
+      return { cart: s.cart.concat([{ name, price, size, qty: 1 }]) };
+    });
+  }
+
+  bump(i, d) {
+    this.setState(s => {
+      const cart = s.cart.slice();
+      const q = cart[i].qty + d;
+      if (q < 1) cart.splice(i, 1); else cart[i] = Object.assign({}, cart[i], { qty: q });
+      return { cart };
+    });
+  }
+
+  renderVals() {
+    const s = this.state;
+    const sub = s.cart.reduce((a, l) => a + l.price * l.qty, 0);
+    const disc = sub * 0.2;
+    const ship = sub >= 60 || sub === 0 ? 0 : 4.9;
+    const end = new Date(); end.setHours(23, 59, 59, 999);
+    let d = Math.max(0, Math.floor((end.getTime() - s.now) / 1000));
+    const pad = n => String(n).padStart(2, '0');
+    const countdown = pad(Math.floor(d / 3600)) + ':' + pad(Math.floor(d / 60) % 60) + ':' + pad(d % 60);
+
+    return {
+      showPromoBar: this.props.showPromoBar ?? true,
+      showCountdown: this.props.showCountdown ?? true,
+      showSocialFeed: this.props.showSocialFeed ?? true,
+      isHome: s.route === 'home',
+      isProduct: s.route === 'product',
+      isCart: s.route === 'cart',
+      isCheckout: s.route === 'checkout',
+      isDone: s.route === 'done',
+      goHome: this.go('home'),
+      goProduct: this.go('product'),
+      goCart: this.go('cart'),
+      goCheckout: this.go('checkout'),
+      placeOrder: this.go('done'),
+      buyNow: () => { this.add('Heavy Hoodie Archive', 79.9, s.size); this.setState({ route: 'checkout' }); },
+      addFromProduct: () => { this.add('Heavy Hoodie Archive', 79.9, s.size); this.setState({ route: 'cart' }); },
+      onAddClick: e => {
+        const b = e.target.closest('[data-add]');
+        if (!b) return;
+        e.stopPropagation();
+        this.add(b.getAttribute('data-add'), parseFloat(b.getAttribute('data-price')), 'M');
+        this.setState({ route: 'cart' });
+      },
+      onSizeClick: e => {
+        const b = e.target.closest('[data-size]');
+        if (b) this.setState({ size: b.getAttribute('data-size') });
+      },
+      onPayClick: e => {
+        const b = e.target.closest('[data-pay]');
+        if (b) this.setState({ pay: b.getAttribute('data-pay') });
+      },
+      onFaqClick: e => {
+        const b = e.target.closest('[data-faq]');
+        if (!b) return;
+        const i = parseInt(b.getAttribute('data-faq'), 10);
+        this.setState({ faq: s.faq === i ? null : i });
+      },
+      onCartClick: e => {
+        const inc = e.target.closest('[data-inc]');
+        const dec = e.target.closest('[data-dec]');
+        const del = e.target.closest('[data-del]');
+        if (inc) this.bump(parseInt(inc.getAttribute('data-inc'), 10), 1);
+        else if (dec) this.bump(parseInt(dec.getAttribute('data-dec'), 10), -1);
+        else if (del) this.setState(st => ({ cart: st.cart.filter((l, i) => i !== parseInt(del.getAttribute('data-del'), 10)) }));
+      },
+      size: s.size,
+      pay: s.pay,
+      countdown,
+      faq0: s.faq === 0, faq1: s.faq === 1, faq2: s.faq === 2, faq3: s.faq === 3,
+      faqMark0: s.faq === 0 ? '–' : '+',
+      faqMark1: s.faq === 1 ? '–' : '+',
+      faqMark2: s.faq === 2 ? '–' : '+',
+      faqMark3: s.faq === 3 ? '–' : '+',
+      cart: s.cart.map((l, i) => ({ name: l.name, size: l.size, qty: l.qty, i, total: this.eur(l.price * l.qty) })),
+      cartEmpty: s.cart.length === 0,
+      cartCount: s.cart.reduce((a, l) => a + l.qty, 0),
+      subtotal: this.eur(sub),
+      shipping: ship === 0 ? 'Gratis' : this.eur(ship),
+      discount: '– ' + this.eur(disc),
+      total: this.eur(Math.max(0, sub - disc + ship))
+    };
+  }
+}
+</script>
+</body>
+</html>
+
