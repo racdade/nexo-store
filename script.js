@@ -67,14 +67,28 @@
   // ---------- Views ----------
   function showView(route) {
     document.querySelectorAll('.view').forEach((el) => {
-      el.hidden = el.getAttribute('data-view') !== route;
+      const isTarget = el.getAttribute('data-view') === route;
+      el.hidden = !isTarget;
+      if (isTarget) {
+        el.classList.remove('view-enter');
+        void el.offsetWidth; // restart the entrance transition
+        el.classList.add('view-enter');
+      }
     });
   }
 
+  let lastCartCount = null;
   function renderCartCount() {
     const count = state.cart.reduce((a, l) => a + l.qty, 0);
     const el = document.getElementById('cart-count');
-    if (el) el.textContent = String(count);
+    if (!el) return;
+    el.textContent = String(count);
+    if (lastCartCount !== null && count !== lastCartCount) {
+      el.classList.remove('bump');
+      void el.offsetWidth;
+      el.classList.add('bump');
+    }
+    lastCartCount = count;
   }
 
   function renderCartPage() {
@@ -262,9 +276,16 @@
 
   document.getElementById('newsletter-form').addEventListener('submit', (e) => {
     e.preventDefault();
-    const input = e.target.querySelector('input[type="email"]');
-    alert('¡Gracias! Te hemos enviado el código -20% a ' + input.value);
-    e.target.reset();
+    const form = e.target;
+    const success = document.getElementById('newsletter-success');
+    form.hidden = true;
+    if (success) {
+      success.hidden = false;
+      success.classList.remove('newsletter-success');
+      void success.offsetWidth;
+      success.classList.add('newsletter-success');
+    }
+    form.reset();
   });
 
   render();
